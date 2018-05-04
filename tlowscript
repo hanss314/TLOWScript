@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+import argparse
+
+PREFIX='/usr/share/tlowscript/'
+
+TLOWSCRIPTS={
+    'milo': ['python3', PREFIX+'milo/main.py'],
+    '96': ['python3', PREFIX+'96/main.py'],
+    'astig': ['python3', PREFIX+'astig/main.py'],
+    'bazinga': ['python3', PREFIX+'bazinga/main.py'],
+    'botter': ['python3', PREFIX+'botter/main.py'],
+    'noah': ['python3', PREFIX+'noah/main.py'],
+    'spdskatr': ['python3', PREFIX+'spdskatr/main.py'],
+    'zm': ['python3', PREFIX+'_zM/main.py'],
+    '_zm': ['python3', PREFIX+'_zM/main.py'],
+    'untypable': ['java', '-jar', PREFIX+'untypable/main.jar'],
+}
+
+def get_opts():
+    parser = argparse.ArgumentParser(prog='tlowscript')
+    parser.add_argument('-s', metavar='variant', help='Use a particular TLOWScript. Defaults to "milo"')
+    parser.add_argument('file', help='The TLOWScript source file.')
+    args = parser.parse_args()
+    return (args.s or 'milo').lower(), args.file
+
+def main():
+    variant, source = get_opts()
+    to_invoke = TLOWSCRIPTS.get(variant)
+    if to_invoke is None:
+        print(f'Expected variant to be ({"|".join(TLOWSCRIPTS.keys())})')
+        sys.exit(1)
+
+    to_invoke.append(source)
+    os.execv(to_invoke[0], to_invoke)
+
+
+if __name__ == '__main__':
+    main()
