@@ -7,16 +7,16 @@ import argparse
 PREFIX='/usr/share/tlowscript/'
 
 TLOWSCRIPTS={
-    'milo': ['python3', PREFIX+'milo/main.py'],
-    '96': ['python3', PREFIX+'96/main.py'],
-    'astig': ['python3', PREFIX+'astig/main.py'],
-    'bazinga': ['python3', PREFIX+'bazinga/main.py'],
-    'botter': ['python3', PREFIX+'botter/main.py'],
-    'noah': ['python3', PREFIX+'noah/main.py'],
-    'spdskatr': ['python3', PREFIX+'spdskatr/main.py'],
-    'zm': ['python3', PREFIX+'_zM/main.py'],
-    '_zm': ['python3', PREFIX+'_zM/main.py'],
-    'untypable': ['java', '-jar', PREFIX+'untypable/main.jar'],
+    'milo': ['/usr/bin/python3', PREFIX+'milo/main.py'],
+    '96': ['/usr/bin/python3', PREFIX+'96/main.py'],
+    'astig': ['/usr/bin/python3', PREFIX+'astig/main.py'],
+    'bazinga': ['/usr/bin/python3', PREFIX+'bazinga/main.py'],
+    'botter': ['/usr/bin/python3', PREFIX+'botter/main.py'],
+    'noah': ['/usr/bin/python3', PREFIX+'noah/main.py'],
+    'spdskatr': ['/usr/bin/python3', PREFIX+'spdskatr/main.py'],
+    'zm': ['/usr/bin/python3', PREFIX+'_zM/main.py'],
+    '_zm': ['/usr/bin/python3', PREFIX+'_zM/main.py'],
+    'untypable': ['/usr/bin/java', '-jar', PREFIX+'untypable/main.jar'],
 }
 
 def get_opts():
